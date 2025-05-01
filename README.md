@@ -1,4 +1,4 @@
-# Randsomeware
+<img width="618" alt="image" src="https://github.com/user-attachments/assets/d7699be1-d6c8-4ba2-ae7f-3563fbabb3d9" /># Randsomeware
 
 Description: In this lab project, I will simulate a basic script execution attack by running an Atomic-Red-script called AutoIt Script Execution in my Azure Windows VM. 
 
@@ -8,7 +8,6 @@ _**Inception State:**_ the organisation has no coorect firewall, IDS/IPS in plac
 Completion State: “Script execution attacks” are when a bad actor infects your endpoint with malware that uses a “script interpreter” (in this case, AutoIt.exe) to automatically launch malicious programs within the target machine, silently.
 ---
 
-<img width="1000" alt="image" src="https://github.com/user-attachments/assets/cfc5dbcf-3fcb-4a71-9c13-2a49f8bab3e6">
 
 # Tools and Frameworks used for this lab:
 - Azure Virtual Machines
@@ -51,6 +50,7 @@ And, we will create the following MDE detection rules using KQL query language t
 
 <img width="736" alt="image" src="https://github.com/user-attachments/assets/e4a2d951-18f3-4b47-8a4d-352a906710e5" />
 
+
 Rule 1: Alert when AutoIt.exe is launched from a User, Temp or Downloads folder AND the command line runs the malicious calc.au3 script file:
 
 
@@ -59,8 +59,32 @@ Rule 1: Alert when AutoIt.exe is launched from a User, Temp or Downloads folder 
 
 <img width="893" alt="image" src="https://github.com/user-attachments/assets/57bfba33-06a9-49c7-8094-908c8696a43f" />
 
+
 Rule 2: Alert when Autolt.exe launches calc.exe (this is an abnormal parent-child process relationship)
 
+
+
+
+
+
+<img width="857" alt="image" src="https://github.com/user-attachments/assets/dcf1f4d8-d93d-4441-b891-d3968b5e8841" />
+
+Rule 3: Alert when PowerShell is used to download something from the internet via the “Invoke-WebRequest” command
+
+
+
+
+
+<img width="862" alt="image" src="https://github.com/user-attachments/assets/1e3e5d52-17b4-4b59-bd0e-c82f2e42dc69" />
+
+Rule 4: Alert when Powershell is being used to install Autolt.exe (Powershell is not typically used to install programs like these in a normal enterprise environment)
+
+
+
+
+<img width="618" alt="image" src="https://github.com/user-attachments/assets/8fe2f5a4-3588-4d75-82d7-be72dd2045f1" />
+
+Overall, here is the screenshot of all the rules setup in MDE
 
 
 This phase I focused on creating a Vulnerability Management Policy as a starting point for stakeholder engagement. The initial draft outlines scope, responsibilities, and remediation timelines, and may be adjusted based on feedback from relevant departments to ensure practical implementation before final approval by upper management.  
