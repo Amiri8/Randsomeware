@@ -1,5 +1,4 @@
-<img width="618" alt="image" src="https://github.com/user-attachments/assets/d7699be1-d6c8-4ba2-ae7f-3563fbabb3d9" /># Randsomeware
-
+<img width="677" alt="image" src="https://github.com/user-attachments/assets/2b4ebdf3-fcc2-43b3-810f-0090e4b5a62b" />
 Description: In this lab project, I will simulate a basic script execution attack by running an Atomic-Red-script called AutoIt Script Execution in my Azure Windows VM. 
 
 
@@ -168,6 +167,67 @@ Invoke-AtomicTest T1059 -PathToAtomicsFolder "C:\Users\YourUser\atomic-red-team\
 
 Runs and detonates our malicious script in the VM, we should see the calculator app open after few seconds
 ---
+
+
+
+
+Once all the scripts successfully run, we can stop the wireshark and save the recorded activity as we can alanayse this later. 
+-----
+
+
+
+### Step 3 - Review MDE Alerts (Post-Attack)
+Now that we have detonated the attack script, let’s check if the attack has triggered any of the detection rules we setup in MDE!
+
+<img width="764" alt="image" src="https://github.com/user-attachments/assets/bfccd43f-3988-4e0a-9703-a5eed04606ae" />
+
+
+
+As you can see, one of our detection rules were triggered!!!
+Ideally, the orhers should have aslo been triggered, but it seems like we have to refine the KQL queries a bit more to improve their detection. We also seem to have randsomeware attack, probably due to disabiling our firewalls and NSG within Azure.
+----
+
+
+
+
+
+### Step 4 - Conduct Incident Response Investigation 
+We will be conducting our incident response investifgation in accordance with **NIST 800-61** Guidelines, which puts us in the **Detection and Alalysis Phase**
+
+<img width="677" alt="image" src="https://github.com/user-attachments/assets/cf09e8b9-7463-475d-bb97-14bbe7cdfb57" />
+
+
+As per **NIST 800-61 Guildline** We need to perform the following tasks for our investigation in order to successfully determine if the alert is a False or True positive.
+
+1. Fund the attack vector used to initiate the attack.
+2. Findings or indicators of security incidents.
+3. Analyse the potential security incident and determine if it is a ture or false positive.
+4. Document all findings and activities of investigations if it is a true positive.
+5. Report the confirmed security incidents to the management team.
+   ----
+
+1. ### Whar was the attack-vector that was used?
+Under the typical circumstance, our investigations would involve iddenrifying the **Attack-Vector** used to initiate the attack. This could be: clicking on a phishing email. However since this is a simulated attack and I have run the attack, there won't be "attack-Vector" to identify. 
+
+
+2. ### What are the Precursos and/or Indicator of the Attack?
+Again since I have simulated the attack, there wont be a real precursors since I intentionally disabled my VM's firewall and allowed all inbound traffic to occur without restrictions (NSG).
+However we have many **indivators of compromise (IOCs)** of our security incidnet via MDE and Sentinel logs. So we can now seach through these logs to see if we can find any strong IOCs. 
+----
+
+### Step 4 - Conduct Incident Response Investigation
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
