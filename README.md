@@ -46,38 +46,40 @@ In this step, we’ll ensure that Microsoft Defender for Endpoint (MDE) is corre
 And, we will create the following MDE detection rules using KQL query language to alert us when any of these steps are executed on our VM:
 
 
-<img width="736" alt="image" src="https://github.com/user-attachments/assets/e4a2d951-18f3-4b47-8a4d-352a906710e5" />
+<img width="874" alt="image" src="https://github.com/user-attachments/assets/ba394244-250d-4f34-bee4-e3d11408da64" />
+
 
 
 Rule 1: Alert when AutoIt.exe is launched from a User, Temp or Downloads folder AND the command line runs the malicious calc.au3 script file:
 
+----
 
 
 
+<img width="852" alt="image" src="https://github.com/user-attachments/assets/b4843470-36a0-4ef7-b605-82adffddbeb6" />
 
-<img width="893" alt="image" src="https://github.com/user-attachments/assets/57bfba33-06a9-49c7-8094-908c8696a43f" />
 
 
 Rule 2: Alert when Autolt.exe launches calc.exe (this is an abnormal parent-child process relationship)
 
 
+------
 
 
 
-
-<img width="857" alt="image" src="https://github.com/user-attachments/assets/dcf1f4d8-d93d-4441-b891-d3968b5e8841" />
+<img width="875" alt="image" src="https://github.com/user-attachments/assets/43c6a452-d7fb-4f21-8eae-d136bf98955b" />
 
 Rule 3: Alert when PowerShell is used to download something from the internet via the “Invoke-WebRequest” command
 
+---------
 
 
 
-
-<img width="862" alt="image" src="https://github.com/user-attachments/assets/1e3e5d52-17b4-4b59-bd0e-c82f2e42dc69" />
+<img width="872" alt="image" src="https://github.com/user-attachments/assets/78537767-9c1c-44a6-a06f-07b34199aff4" />
 
 Rule 4: Alert when Powershell is being used to install Autolt.exe (Powershell is not typically used to install programs like these in a normal enterprise environment)
 
-
+-----
 
 
 <img width="618" alt="image" src="https://github.com/user-attachments/assets/8fe2f5a4-3588-4d75-82d7-be72dd2045f1" />
@@ -354,13 +356,14 @@ According to NIST, this phase involves completing the following tasks in order t
 ----
 
 
+**Post-Incident Activities**
+At this point, 
+
+we are now in the final **Post-Incident Activity phase**. In this phase we review all of the lessons learned from our incident and use that to build better detection rules in future. 
 
 
 
-
-
-
-
+<img width="640" alt="Screenshot 2025-05-01 at 6 34 42 pm" src="https://github.com/user-attachments/assets/d8381741-17f9-441f-849e-a756a72047ff" />
 
 
 
