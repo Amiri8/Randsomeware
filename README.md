@@ -1,4 +1,4 @@
-## Incident Response Simulation  
+## Incident Response Simulation Using NIST 800-61
 
 
 **Description: In this lab project, I will simulate a basic script execution attack by running an Atomic-Red-script called AutoIt Script Execution in my Azure Windows VM.**
