@@ -305,28 +305,52 @@ So I used this command
 
 
 
+<pre>
+DeviceNetworkEvents
+| where Timestamp > ago(24h)
+| where DeviceName == "atomictest-02"
+| project Timestamp, DeviceName, RemoteIP, RemotePort, Protocol, ActionType, InitiatingProcessFileName, ReportId
+| order by Timestamp desc
+</pre>
 
 
 
+<img width="765" alt="image" src="https://github.com/user-attachments/assets/fbd71b5a-f929-4d21-91e5-d8ce0cd74104" />
+
+
+So at this point, we should have enough evidence to escalate this incidnet and move into the **Containment, Eradication, and Recovery** phase of NIST-800-6. 
+
+
+----
+
+
+### Step 5 - Containment, Eradication, and Recovery
+
+At this point we have conducted our investigation in accordance with the Detection and Analysis phase of NIST 800-61. Now would be time to collect our evidence, write a report of our findings and inform the appropriate managements. 
+
+Once we have taken the above steps, we can now enter the **Containment, Eradication, and Recovery** phase of NIST 800-61
 
 
 
+<img width="530" alt="Screenshot 2025-05-01 at 6 23 18 pm" src="https://github.com/user-attachments/assets/912bd4d3-7d8b-490d-88f1-8c5b2136425c" />
 
 
+According to NIST, this phase involves completing the following tasks in order to remediate this security breach:
+
+1. Choose a containment strategy
+2. Gather any evidence, artifacts, IOCs for potential legal proceedings.
+3. Identify the attacking host(s)
+4. Eradicate the components of the breach and Recover the impacted assets.
 
 
+**Choosing a containment strategy:** In this scenarios the most appropriate containment strategy is to **isolate** the VM from MDE to prevent any further communication with malicious server. 
+**Gather evidence:** Here, we would gather all IP addresses, PCAP files, logs, hash values of suspected files (calc.au3.exe, etc.) and any indicators of compromise that will help build a legal case.
 
+**Identify the attacking host(s):** Since this was a simulated attack, this won’t apply.
 
+**Eradicate the components of the breach and Recover the impacted assets:** In this case, this involves running an anti-malware or antivitus scans, enabling our firewall and NSG, and deleting any malcious files from the host.
 
-
-
-
-
-
-
-
-
-
+----
 
 
 
