@@ -344,6 +344,7 @@ According to NIST, this phase involves completing the following tasks in order t
 
 
 **Choosing a containment strategy:** In this scenarios the most appropriate containment strategy is to **isolate** the VM from MDE to prevent any further communication with malicious server. 
+
 **Gather evidence:** Here, we would gather all IP addresses, PCAP files, logs, hash values of suspected files (calc.au3.exe, etc.) and any indicators of compromise that will help build a legal case.
 
 **Identify the attacking host(s):** Since this was a simulated attack, this won’t apply.
