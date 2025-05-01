@@ -87,6 +87,97 @@ Rule 4: Alert when Powershell is being used to install Autolt.exe (Powershell is
 Overall, here is the screenshot of all the rules setup in MDE
 
 
+-----
+
+### Step 2 - Execute the Atomic Red Team Attack (T1059 - Command and Scripting Interpreter)
+
+With Microsoft Defender for Endpoint (MDE) and your VM environment ready, we will now execute the Atomic Red Team attack that simulates PowerShell-based script execution (MITRE ATT&CK T1059). 
+
+Clone Atomic Red Team Repository:
+
+<pre>
+powershell:
+git clone https://github.com/redcanaryco/atomic-red-team.git
+</pre>
+
+This downloads the full library of Atomic Red 
+---
+
+
+<pre>
+powershell:
+cd C:\Users\adminuser\atomic-red-team
+</pre>
+
+This changed directory to the folder where the scripts are loaded
+---
+
+<pre>
+powershell:
+$env:PathToAtomicsFolder = "C:\Users\YourUser\atomic-red-team\atomics\"
+</pre>
+
+This makes sure that we are pulling the atomic script from the correct folder (Atomics) that was created when we cloned the Atomic Red database of attacks
+---
+
+<pre>
+powershell:
+Install-Module -Name Invoke-AtomicRedTeam -Force -AllowClobber
+</pre>
+
+This preps our VM for running the attacks by downloading the right module to do so. “-AllowClobber” also allows us to override any existing modules that could get in the way.
+---
+
+<pre>
+powershell
+Install-Module -Name Invoke-AtomicRedTeam -Force -AllowClobber
+</pre>
+
+This installs the PowerShell module required to run Atomic Red Team tests.
+---
+
+<pre>
+ powershell
+Import-Module Invoke-AtomicRedTeam
+</pre>
+This imports the module into your current PowerShell session
+----
+
+<pre>
+powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force
+</pre>
+
+Temporarily bypasses PowerShell script execution restrictions to allow the test to run.
+----
+
+<pre>
+powershell
+Invoke-AtomicTest T1059 -GetPrereqs -PathToAtomicsFolder "C:\Users\Ali-win-10\atomic-red-team\atomics\"
+</pre>
+
+Downloads and installs any required tools or scripts needed to run the Atomic test.
+-----
+
+
+
+<pre>
+powershell
+Invoke-AtomicTest T1059 -PathToAtomicsFolder "C:\Users\YourUser\atomic-red-team\atomics\"
+</pre>
+
+Runs and detonates our malicious script in the VM, we should see the calculator app open after few seconds
+---
+
+
+
+
+
+
+
+
+
+
 This phase I focused on creating a Vulnerability Management Policy as a starting point for stakeholder engagement. The initial draft outlines scope, responsibilities, and remediation timelines, and may be adjusted based on feedback from relevant departments to ensure practical implementation before final approval by upper management.  
 [Draft Policy](https://docs.google.com/document/d/1vjTiAw22sGOtd1_bBgbrbfSeEDZNOSQynUS3v78_CT4/edit?tab=t.0)
 
