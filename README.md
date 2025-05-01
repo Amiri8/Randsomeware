@@ -49,6 +49,20 @@ In this step, we’ll ensure that Microsoft Defender for Endpoint (MDE) is corre
 And, we will create the following MDE detection rules using KQL query language to alert us when any of these steps are executed on our VM:
 
 
+<img width="736" alt="image" src="https://github.com/user-attachments/assets/e4a2d951-18f3-4b47-8a4d-352a906710e5" />
+
+Rule 1: Alert when AutoIt.exe is launched from a User, Temp or Downloads folder AND the command line runs the malicious calc.au3 script file:
+
+
+
+
+
+<img width="893" alt="image" src="https://github.com/user-attachments/assets/57bfba33-06a9-49c7-8094-908c8696a43f" />
+
+Rule 2: Alert when Autolt.exe launches calc.exe (this is an abnormal parent-child process relationship)
+
+
+
 This phase I focused on creating a Vulnerability Management Policy as a starting point for stakeholder engagement. The initial draft outlines scope, responsibilities, and remediation timelines, and may be adjusted based on feedback from relevant departments to ensure practical implementation before final approval by upper management.  
 [Draft Policy](https://docs.google.com/document/d/1vjTiAw22sGOtd1_bBgbrbfSeEDZNOSQynUS3v78_CT4/edit?tab=t.0)
 
